@@ -3,16 +3,16 @@ package main
 import (
 	"context"
 	"database/sql"
+	_ "github.com/go-sql-driver/mysql"
 	"log"
 	"os"
-	"skw.mijnschoolteam/mysql"
+	"skw.mijnschoolteam/mijnschoolteam/mysql"
 )
 
 func main() {
-
 	ctx := context.Background()
 
-	db, err := sql.Open("mysql", "user:password@/dbname?parseTime=true")
+	db, err := sql.Open("mysql", "user:password@/db_name?parseTime=true")
 	if err != nil {
 		log.Fatalf("Could not connect with mysql database")
 		os.Exit(1)
@@ -34,5 +34,6 @@ func main() {
 			nFailed++
 		}
 	}
+
 	log.Printf("Finished deactivating accounts. %s failed", nFailed)
 }

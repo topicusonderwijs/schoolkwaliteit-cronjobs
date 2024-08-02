@@ -1,8 +1,8 @@
 version: "2"
 sql:
   - engine: "mysql"
-    queries: "query.sql"
-    schema: "migrations/"
+    queries: "mijnschoolteam/query.sql"
+    schema: "mijnschoolteam/migrations/"
     gen:
       go:
         package: "mysql"
